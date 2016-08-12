@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lang>
+	<item name="msg_noduplicate_is_duplicate_document">
+		<value xml:lang="ko"><![CDATA[제목이나 내용이 같은 글을 짧은 시간 안에 여러 번 등록할 수 없습니다.]]></value>
+		<value xml:lang="en"><![CDATA[You cannot write multiple documents with the same title and/or content in a short period of time.]]></value>
+	</item>
+	<item name="msg_noduplicate_is_duplicate_comment">
+		<value xml:lang="ko"><![CDATA[같은 내용의 댓글을 짧은 시간 안에 여러 번 등록할 수 없습니다.]]></value>
+		<value xml:lang="en"><![CDATA[You cannot write multiple comments with the same content in a short period of time.]]></value>
+	</item>
+</lang>

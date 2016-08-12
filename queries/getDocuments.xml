@@ -1,0 +1,24 @@
+<query id="getDocuments" action="select">
+    <tables>
+        <table name="documents" />
+    </tables>
+    <columns>
+        <column name="module_srl" />
+		<column name="category_srl" />
+		<column name="document_srl" />
+		<column name="member_srl" />
+		<column name="title" />
+		<column name="content" />
+		<column name="regdate" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="module_srl" var="module_srl" filter="number" />
+        <condition operation="equal" column="category_srl" var="category_srl" filter="number" pipe="and" />
+		<condition operation="notequal" column="document_srl" var="not_document_srl" filter="number" pipe="and" />
+        <condition operation="equal" column="member_srl" var="member_srl" filter="number" pipe="and" />
+		<condition operation="more" column="regdate" var="since_regdate" pipe="and" />
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="regdate" order="desc" />
+	</navigation>
+</query>

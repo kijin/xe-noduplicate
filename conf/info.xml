@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+    <title xml:lang="ko">중복 글/댓글 방지 애드온</title>
+    <title xml:lang="en">No Duplicates</title>
+    <description xml:lang="ko">같은 내용의 글이나 댓글을 여러 번 등록하는 것을 방지합니다.</description>
+    <description xml:lang="en">Prevent users from submitting the same content multiple times.</description>
+    <version>1.0</version>
+    <date>2016-08-13</date>
+    <author email_address="kijin@kijinsung.com" link="https://github.com/kijin">
+        <name xml:lang="ko">Kijin Sung</name>
+        <name xml:lang="en">Kijin Sung</name>
+    </author>
+    <extra_vars>
+		<var name="block_document" type="select">
+			<title xml:lang="ko">중복 글 방지</title>
+			<title xml:lang="en">Prevent duplicate documents</title>
+			<options value="Y">
+				<title xml:lang="ko">예</title>
+				<title xml:lang="en">Yes</title>
+			</options>
+			<options value="N">
+				<title xml:lang="ko">아니오</title>
+				<title xml:lang="en">No</title>
+			</options>
+		</var>
+		<var name="block_comment" type="select">
+			<title xml:lang="ko">중복 댓글 방지</title>
+			<title xml:lang="en">Prevent duplicate documents</title>
+			<options value="Y">
+				<title xml:lang="ko">예</title>
+				<title xml:lang="en">Yes</title>
+			</options>
+			<options value="N">
+				<title xml:lang="ko">아니오</title>
+				<title xml:lang="en">No</title>
+			</options>
+		</var>
+		<var name="range_document" type="select">
+			<title xml:lang="ko">중복 글 검색 범위</title>
+			<title xml:lang="en">Look for duplicate documents in</title>
+			<options value="site">
+				<title xml:lang="ko">사이트 전체</title>
+				<title xml:lang="en">Entire site</title>
+			</options>
+			<options value="module">
+				<title xml:lang="ko">같은 게시판에서만</title>
+				<title xml:lang="en">Same board only</title>
+			</options>
+			<options value="category">
+				<title xml:lang="ko">같은 카테고리에서만</title>
+				<title xml:lang="en">Same category only</title>
+			</options>
+		</var>
+		<var name="range_comment" type="select">
+			<title xml:lang="ko">중복 댓글 검색 범위</title>
+			<title xml:lang="en">Look for duplicate comments in</title>
+			<options value="site">
+				<title xml:lang="ko">사이트 전체</title>
+				<title xml:lang="en">Entire site</title>
+			</options>
+			<options value="module">
+				<title xml:lang="ko">같은 게시판에서만</title>
+				<title xml:lang="en">Same board only</title>
+			</options>
+			<options value="document">
+				<title xml:lang="ko">같은 글에서만</title>
+				<title xml:lang="en">Same document only</title>
+			</options>
+		</var>
+		<var name="time_document" type="select">
+			<title xml:lang="ko">중복 글 검색 기간</title>
+			<title xml:lang="en">Treat as duplicate document for</title>
+			<options value="3600">
+				<title xml:lang="ko">1시간</title>
+				<title xml:lang="en">1 hour</title>
+			</options>
+			<options value="7200">
+				<title xml:lang="ko">2시간</title>
+				<title xml:lang="en">2 hours</title>
+			</options>
+			<options value="14400">
+				<title xml:lang="ko">4시간</title>
+				<title xml:lang="en">4 hours</title>
+			</options>
+			<options value="28800">
+				<title xml:lang="ko">8시간</title>
+				<title xml:lang="en">8 hours</title>
+			</options>
+			<options value="43200">
+				<title xml:lang="ko">12시간</title>
+				<title xml:lang="en">12 hours</title>
+			</options>
+			<options value="86400">
+				<title xml:lang="ko">24시간</title>
+				<title xml:lang="en">24 hours</title>
+			</options>
+			<options value="172800">
+				<title xml:lang="ko">48시간</title>
+				<title xml:lang="en">48 hours</title>
+			</options>
+			<options value="1800">
+				<title xml:lang="ko">30분</title>
+				<title xml:lang="en">30 minutes</title>
+			</options>
+			<options value="1200">
+				<title xml:lang="ko">20분</title>
+				<title xml:lang="en">10 minutes</title>
+			</options>
+			<options value="600">
+				<title xml:lang="ko">10분</title>
+				<title xml:lang="en">10 minutes</title>
+			</options>
+			<options value="300">
+				<title xml:lang="ko">5분</title>
+				<title xml:lang="en">5 minutes</title>
+			</options>
+			<options value="180">
+				<title xml:lang="ko">3분</title>
+				<title xml:lang="en">3 minutes</title>
+			</options>
+			<options value="60">
+				<title xml:lang="ko">1분</title>
+				<title xml:lang="en">1 minutes</title>
+			</options>
+		</var>
+		<var name="time_comment" type="select">
+			<title xml:lang="ko">중복 댓글 검색 기간</title>
+			<title xml:lang="en">Treat as duplicate comment for</title>
+			<options value="3600">
+				<title xml:lang="ko">1시간</title>
+				<title xml:lang="en">1 hour</title>
+			</options>
+			<options value="7200">
+				<title xml:lang="ko">2시간</title>
+				<title xml:lang="en">2 hours</title>
+			</options>
+			<options value="14400">
+				<title xml:lang="ko">4시간</title>
+				<title xml:lang="en">4 hours</title>
+			</options>
+			<options value="28800">
+				<title xml:lang="ko">8시간</title>
+				<title xml:lang="en">8 hours</title>
+			</options>
+			<options value="43200">
+				<title xml:lang="ko">12시간</title>
+				<title xml:lang="en">12 hours</title>
+			</options>
+			<options value="86400">
+				<title xml:lang="ko">24시간</title>
+				<title xml:lang="en">24 hours</title>
+			</options>
+			<options value="172800">
+				<title xml:lang="ko">48시간</title>
+				<title xml:lang="en">48 hours</title>
+			</options>
+			<options value="1800">
+				<title xml:lang="ko">30분</title>
+				<title xml:lang="en">30 minutes</title>
+			</options>
+			<options value="1200">
+				<title xml:lang="ko">20분</title>
+				<title xml:lang="en">10 minutes</title>
+			</options>
+			<options value="600">
+				<title xml:lang="ko">10분</title>
+				<title xml:lang="en">10 minutes</title>
+			</options>
+			<options value="300">
+				<title xml:lang="ko">5분</title>
+				<title xml:lang="en">5 minutes</title>
+			</options>
+			<options value="180">
+				<title xml:lang="ko">3분</title>
+				<title xml:lang="en">3 minutes</title>
+			</options>
+			<options value="60">
+				<title xml:lang="ko">1분</title>
+				<title xml:lang="en">1 minutes</title>
+			</options>
+		</var>
+		<var name="action_document" type="select">
+			<title xml:lang="ko">중복 글 대응 방식</title>
+			<title xml:lang="en">Action on duplicate document</title>
+			<options value="auto">
+				<title xml:lang="ko">속성과 시간차에 따라 자동 대응</title>
+				<title xml:lang="en">Automatic, depending on time and other attributes</title>
+			</options>
+			<options value="redirect">
+				<title xml:lang="ko">항상 예전 글로 연결</title>
+				<title xml:lang="en">Always redirect to old document</title>
+			</options>
+			<options value="error">
+				<title xml:lang="ko">항상 에러 메시지 표시</title>
+				<title xml:lang="en">Display error message</title>
+			</options>
+		</var>
+		<var name="action_comment" type="select">
+			<title xml:lang="ko">중복 댓글 대응 방식</title>
+			<title xml:lang="en">Action on duplicate comment</title>
+			<options value="auto">
+				<title xml:lang="ko">속성과 시간차에 따라 자동 대응</title>
+				<title xml:lang="en">Automatic, depending on time and other attributes</title>
+			</options>
+			<options value="redirect">
+				<title xml:lang="ko">항상 예전 댓글로 연결</title>
+				<title xml:lang="en">Always redirect to old comment</title>
+			</options>
+			<options value="error">
+				<title xml:lang="ko">항상 에러 메시지 표시</title>
+				<title xml:lang="en">Display error message</title>
+			</options>
+		</var>
+	</extra_vars>
+</addon>
