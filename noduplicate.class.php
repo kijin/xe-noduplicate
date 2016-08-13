@@ -207,6 +207,30 @@ class NoDuplicateAddon
 			return false;
 		}
 		
+		// Check if it is safe to redirect.
+		if ($this->action_type === 'document')
+		{
+			if (Context::get('document_srl'))
+			{
+				return false;
+			}
+			if (!in_array($this->duplicate_info->module_srl, getModel('module')->getModuleSrlByMid(Context::get('mid'))))
+			{
+				return false;
+			}
+		}
+		else
+		{
+			if (Context::get('comment_srl'))
+			{
+				return false;
+			}
+			if ($this->duplicate_info->document_srl != Context::get('document_srl'))
+			{
+				return false;
+			}
+		}
+		
 		// Generate the URL.
 		$redirect_info = new stdClass;
 		$redirect_info->document_srl = $this->duplicate_info->document_srl;
