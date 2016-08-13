@@ -95,6 +95,14 @@ class NoDuplicateAddon
 			{
 				$args->member_srl = $logged_info->member_srl;
 			}
+			else
+			{
+				$args->ipaddress = $_SERVER['REMOTE_ADDR'];
+			}
+		}
+		else
+		{
+			$args->ipaddress = $_SERVER['REMOTE_ADDR'];
 		}
 		$args->since_regdate = date('YmdHis', time() - $this->search_time);
 		
@@ -157,6 +165,14 @@ class NoDuplicateAddon
 			{
 				$args->member_srl = $logged_info->member_srl;
 			}
+			else
+			{
+				$args->ipaddress = $_SERVER['REMOTE_ADDR'];
+			}
+		}
+		else
+		{
+			$args->ipaddress = $_SERVER['REMOTE_ADDR'];
 		}
 		$args->since_regdate = date('YmdHis', time() - $this->search_time);
 		
