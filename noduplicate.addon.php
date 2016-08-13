@@ -14,7 +14,7 @@ if ($called_position === 'before_module_proc' && preg_match('/^proc[A-Z][a-z0-9_
 {
 	include_once dirname(__FILE__) . '/noduplicate.class.php';
 	$addon_info->action_type = strtolower($matches[1]) === 'document' ? 'document' : 'comment';
-	$addon_obj = new NoDuplicateAddon($addon_info);
+	$addon_obj = new NoDuplicateAddon($addon_info, $this);
 	if ($addon_obj->isDuplicate())
 	{
 		$this->act .= '_NODUPLICATE_BLOCKED!';

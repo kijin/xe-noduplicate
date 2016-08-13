@@ -16,17 +16,19 @@ class NoDuplicateAddon
 	protected $search_time;
 	protected $block_action;
 	protected $duplicate_info;
+	protected $module_object;
 	
 	/**
 	 * Constructor.
 	 */
-	public function __construct($args)
+	public function __construct($args, $module_object)
 	{
 		$this->action_type = $action_type = $args->action_type;
 		$this->is_enabled = isset($args->{'block_' . $action_type}) ? ($args->{'block_' . $action_type} === 'Y' ? true : false) : true;
 		$this->search_range = isset($args->{'range_' . $action_type}) ? $args->{'range_' . $action_type} : 'site';
 		$this->search_time = isset($args->{'time_' . $action_type}) ? intval($args->{'time_' . $action_type}) : 3600;
 		$this->block_action = isset($args->{'action_' . $action_type}) ? $args->{'action_' . $action_type} : 'auto';
+		$this->module_object = $module_object;
 	}
 	
 	/**
@@ -34,11 +36,19 @@ class NoDuplicateAddon
 	 */
 	public function isDuplicate()
 	{
+		// Stop if disabled.
 		if (!$this->is_enabled)
 		{
 			return false;
 		}
 		
+		// Stop if the current user is an administrator.
+		if ($this->module_object->grant && $this->module_object->grant->manager)
+		{
+			return false;
+		}
+		
+		// Call the checking method for the current action type.
 		if ($this->action_type === 'document')
 		{
 			return $this->_isDuplicateDocument();
