@@ -15,7 +15,7 @@
         <condition operation="equal" column="module_srl" var="module_srl" filter="number" />
         <condition operation="equal" column="category_srl" var="category_srl" filter="number" pipe="and" />
 		<condition operation="notequal" column="document_srl" var="not_document_srl" filter="number" pipe="and" />
-        <condition operation="equal" column="member_srl" var="member_srl" filter="number" pipe="and" />
+        <condition operation="in" column="member_srl" var="member_srl" filter="number" pipe="and" />
 		<condition operation="equal" column="ipaddress" var="ipaddress" pipe="and" />
 		<condition operation="more" column="regdate" var="since_regdate" pipe="and" />
     </conditions>

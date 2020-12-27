@@ -93,7 +93,10 @@ class NoDuplicateAddon
 		{
 			if ($logged_info->member_srl)
 			{
-				$args->member_srl = $logged_info->member_srl;
+				$args->member_srl = array(
+					intval($logged_info->member_srl),
+					intval($logged_info->member_srl) * -1
+				);
 			}
 			else
 			{
@@ -163,7 +166,10 @@ class NoDuplicateAddon
 		{
 			if ($logged_info->member_srl)
 			{
-				$args->member_srl = $logged_info->member_srl;
+				$args->member_srl = array(
+					intval($logged_info->member_srl),
+					intval($logged_info->member_srl) * -1
+				);
 			}
 			else
 			{
